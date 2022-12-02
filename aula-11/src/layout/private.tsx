@@ -32,6 +32,13 @@ export default function MainLayout(props: Props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigation = useNavigate();
 
+  React.useEffect(() => {
+    const auth = localStorage.getItem("auth")
+    if (!auth) {
+      navigation("/publico/entrar")
+    }
+  }, [])
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
