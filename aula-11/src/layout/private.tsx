@@ -15,6 +15,7 @@ import Button from "@mui/material/Button";
 
 import { useNavigate, Outlet } from "react-router-dom";
 import Container from "@mui/material/Container";
+import { useAuth } from "@/hooks/use-auth";
 
 interface Props {
   /**
@@ -25,19 +26,15 @@ interface Props {
 }
 
 const drawerWidth = 240;
-const navItems = ["Home", "Pokemon"];
+const navItems = ["Home", "Pokemon", "Users"];
 
 export default function MainLayout(props: Props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const navigation = useNavigate();
+  const {isLogged, login} = useAuth()
 
-  React.useEffect(() => {
-    const auth = localStorage.getItem("auth")
-    if (!auth) {
-      navigation("/publico/entrar")
-    }
-  }, [])
+  if (!isLogged()) login()
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);

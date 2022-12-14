@@ -8,9 +8,9 @@ export type UserData = {
 export type User = {
   email: string;
   id: number;
-}
+};
 
-type LoginResultData = {
+export type LoginResultData = {
   accessToken: string;
   user: {
     email: string;
@@ -19,7 +19,7 @@ type LoginResultData = {
 };
 
 export function createNewUser(data: UserData): Promise<LoginResultData> {
-  console.log(data)
+  console.log(data);
   return fetch(`${baseURL}/register`, {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },
@@ -28,7 +28,7 @@ export function createNewUser(data: UserData): Promise<LoginResultData> {
 }
 
 export function doLogin(data: UserData): Promise<LoginResultData> {
-  console.log(data)
+  console.log(data);
   return fetch(`${baseURL}/login`, {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" },

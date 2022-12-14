@@ -28,7 +28,6 @@ export function Login() {
     }
 
     const loginData = await doLogin({ email, password });
-    debugger
     if (loginData.accessToken) {
       localStorage.setItem("auth", JSON.stringify(loginData))
       navigate("/")

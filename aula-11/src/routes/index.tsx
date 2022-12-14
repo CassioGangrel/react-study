@@ -8,6 +8,7 @@ import { apiPokemonToPokemonListItem } from "@/mappers";
 import { PokemonShow } from "@/pages/pokedex/show";
 import { BlankLayout } from "@/layout/blank";
 import { Login, Register } from "@/pages/authentication";
+import { UserPage } from "@/pages/users";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
           },
         ],
       },
+      {
+        path: "users",
+        element: <UserPage />
+      }
     ],
   },
   {
